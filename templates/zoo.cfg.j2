@@ -1,8 +1,12 @@
 tickTime=2000
-dataDir=/var/zookeeper
+dataDir={{ zookeeper_data_dir }}
+dataLogDir={{ zookeeper_data_log_dir }}
 clientPort=2181
 initLimit=5
 syncLimit=2
+
+autopurge.snapRetainCount={{ zookeeper_snap_retain_count }}
+autopurge.purgeInterval={{ zookeeper_purge_interval }}
 
 {% for server in zookeeper_servers %}
 server.{{ hostvars[server]['zookeeper_myid'] }}={{ server }}:2888:3888

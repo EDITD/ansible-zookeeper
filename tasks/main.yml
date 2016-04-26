@@ -7,9 +7,12 @@
   template: dest=/etc/zookeeper/conf/zoo.cfg src=zoo.cfg.j2 mode=0644
   sudo: yes
 
-- name: create the data dir
-  file: path=/var/zookeeper owner=zookeeper mode=0755 state=directory
+- name: create the data directories
+  file: path={{ item }} owner=zookeeper mode=0755 state=directory
   sudo: yes
+  with_items:
+    - {{ zookeeper_data_dir }}
+    - {{ zookeeper_data_log_dir }}
 
 - name: set the myid
   template: dest=/var/zookeeper/myid src=myid.j2 mode=0644
