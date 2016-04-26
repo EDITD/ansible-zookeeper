@@ -1,3 +1,7 @@
 ---
 
 zookeeper_myid: only_zookeeper
+zookeeper_data_dir: /var/zookeeper
+zookeeper_data_log_dir: /var/zookeeper
+zookeeper_snap_retain_count: 3
+zookeeper_purge_interval: 2
