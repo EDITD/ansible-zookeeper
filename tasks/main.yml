@@ -11,8 +11,8 @@
   file: path={{ item }} owner=zookeeper mode=0755 state=directory
   sudo: yes
   with_items:
-    - {{ zookeeper_data_dir }}
-    - {{ zookeeper_data_log_dir }}
+    - "{{ zookeeper_data_dir }}"
+    - "{{ zookeeper_data_log_dir }}"
 
 - name: set the myid
   template: dest=/var/zookeeper/myid src=myid.j2 mode=0644
